@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Smart Vest · Hito 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF1F4;--surf:#fff;--ink:#14213D;--mut:#4d5a73;--acc:#1F7A8C;--hi:#E9B44C;--line:#d3d9e2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1626;--surf:#18213a;--ink:#eef1f6;--mut:#a6b1c6;--acc:#5cc0d3;--hi:#E9B44C;--line:#2b3757;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1626;--surf:#18213a;--ink:#eef1f6;--mut:#a6b1c6;--acc:#5cc0d3;--hi:#E9B44C;--line:#2b3757;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 'Bricolage Grotesque',system-ui,sans-serif}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:18px;padding:12px 20px;overflow-x:auto;white-space:nowrap;font-size:14px}
+nav a{color:var(--mut);text-decoration:none}nav a:hover,nav a:focus-visible{color:var(--acc);outline:none;text-decoration:underline}
+nav b{color:var(--ink);margin-right:8px}
+section{max-width:1000px;margin:0 auto;padding:64px 22px}
+h1{font-size:clamp(38px,7vw,76px);line-height:1;margin:0 0 18px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(26px,4vw,38px);margin:0 0 6px;font-weight:800;letter-spacing:-.01em}
+h3{margin:0 0 6px;font-size:18px}
+p{margin:.4em 0;max-width:62ch}.mut{color:var(--mut)}
+.hero{padding-top:80px}
+.tag{display:inline-block;border:1.5px solid var(--hi);padding:4px 12px;border-radius:4px 14px 4px 14px;font-size:14px;margin-bottom:18px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:22px}
+.box{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:18px}
+.big{font-size:44px;font-weight:800;line-height:1;color:var(--acc)}
+.stmt{border-left:6px solid var(--hi);padding:6px 0 6px 18px;font-size:21px;margin:22px 0;max-width:60ch}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:18px}
+.chip{background:var(--surf);border:1px solid var(--line);padding:6px 12px;border-radius:99px;font-size:14px}
+.chip.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.chip.top{border-color:var(--hi);border-width:2px}
+.sw{overflow-x:auto;margin-top:18px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:center}th:first-child,td:first-child{text-align:left}
+td.A{background:var(--acc);color:#fff;font-weight:600}td.M{background:color-mix(in srgb,var(--acc) 35%,transparent)}td.B{background:color-mix(in srgb,var(--acc) 15%,transparent)}
+tr.me td:first-child{font-weight:800}tr.me{outline:2px solid var(--hi)}
+.steps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:22px}
+.ph{border:1.5px dashed var(--mut);border-radius:8px;padding:10px;color:var(--mut);font-size:14px;margin-top:10px}
+.ph.v{min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center}
+.ph.v img { width: 100%; height: auto; display: block; border-radius: 6px; }
+.met{font-size:13px;color:var(--mut)}
+ol.next{padding-left:20px}
+footer{max-width:1000px;margin:0 auto;padding:30px 22px 60px;font-size:13px;color:var(--mut)}
+footer p{max-width:none;padding-left:2em;text-indent:-2em}
+a{color:var(--acc)}a:focus-visible{outline:2px solid var(--hi)}
+</style></head><body>
+<nav aria-label="Secciones"><b>Smart Vest</b><a href="#problema">Problema</a><a href="#usuario">Usuario</a><a href="#propuesta">Propuesta</a><a href="#ideas">Ideas</a><a href="#prototipo">Prototipo</a><a href="#validacion">Validación</a><a href="#proximos">Próximos pasos</a><a href="#refs">Referencias</a></nav>
+
+<section class="hero" id="inicio">
+<span class="tag">Hito 2 · Prototipado y validación · Sección 11, Equipo 2</span>
+<h1>Tienes el clóset lleno y sientes que no tienes qué ponerte.</h1>
+<p class="mut" style="font-size:20px">Smart Vest es una app que te muestra lo que ya tienes, cuánto rinde cada prenda y qué ponerte según el clima, antes de que compres otra vez.</p>
+<div class="grid">
+<div class="box"><div class="big">233%</div><p>más compra de vestuario en Chile en 20 años: de 13 a 50 prendas al año por persona.</p></div>
+<div class="box"><div class="big">572.000</div><p>toneladas de residuos textiles al año en Chile.</p></div>
+<div class="box"><div class="big">80%</div><p>de los jóvenes dice estar influenciado por redes sociales o influencers.</p></div>
+</div>
+<p class="met">Datos del proyecto (ver Referencias). Verificar la fuente exacta de cada cifra antes de exponer.</p>
+</section>
+
+<section id="problema">
+<h2>El problema</h2>
+<p class="mut">Compramos por estímulo, no por necesidad.</p>
+<div class="stmt">Los jóvenes de 17 a 35 años de la Región Metropolitana compran ropa de forma impulsiva y no planificada, porque no ven ni recuerdan lo que ya tienen y no saben cuánto rinde lo que compran.</div>
+<div class="grid">
+<div class="box"><h3>Qué vimos en terreno</h3><p>Observación en malls: descuentos, novedades y navegación pasiva en apps como Shein o H&amp;M.</p></div>
+<div class="box"><h3>Qué dijeron en entrevistas</h3><p>Ninguno de los 4 entrevistados lleva un registro de gasto en ropa; todos tienen prendas sin uso.</p></div>
+<div class="box"><h3>Por qué importa ahora</h3><p>El bajo costo hace la ropa “reemplazable”: se acumula, se gasta de más y se desecha (Niinimäki et al., 2020; O’Brien y Poo, 2024).</p></div>
+</div>
+<h3 style="margin-top:28px">Alcances del proyecto</h3>
+<div class="flow"><span class="chip on">App móvil</span><span class="chip on">Usuarios de la RM</span><span class="chip on">Ropa que el usuario ya posee</span><span class="chip">No vende ropa</span><span class="chip">No es una tienda ni un marketplace (por ahora)</span></div>
+</section>
+
+<section id="usuario">
+<h2>El usuario</h2>
+<div class="grid">
+<div class="box"><h3>Estudiantes, 17 a 22 años</h3><p>Usuarios; los padres suelen financiar la compra ($25.000–$60.000 CLP al mes).</p></div>
+<div class="box"><h3>Jóvenes profesionales, 23 a 35 años</h3><p>Usuarios y clientes a la vez ($60.000–$100.000 CLP al mes).</p></div>
+<div class="box"><h3>Lo que los mueve</h3><p>Validación social y gratificación inmediata, más que necesidad funcional.</p></div>
+</div>
+<div class="stmt" style="font-size:18px">“Sí, estaría dispuesta a hacerlo para llevar control de eso.” Los entrevistados aceptan registrar su ropa solo si es rápido y automático.</div>
+</section>
+
+<section id="propuesta">
+<h2>Propuesta conceptual</h2>
+<p class="mut">Unir lo que ya tienes con lo que estás por comprar. Ninguna solución existente lo hace.</p>
+<div class="steps">
+<div class="box"><h3>Clóset digital</h3><p>Registra tus prendas con una foto.</p></div>
+<div class="box"><h3>Costo por uso</h3><p>CpU = precio ÷ veces usada. Muestra cuánto rinde cada prenda.</p></div>
+<div class="box"><h3>Asistente de outfits</h3><p>Sugiere qué ponerte según clima y ropa disponible.</p></div>
+<div class="box"><h3>Resumen financiero</h3><p>Gastos y presupuesto para frenar la compra impulsiva.</p></div>
+</div>
+</section>
+
+<section id="ideas">
+<h2>Ideas de solución y selección</h2>
+<h3 style="margin-top:18px">Referentes analizados</h3>
+<div class="sw"><table>
+<tr><th>Solución</th><th>Ver el clóset</th><th>Frenar impulso</th><th>Conciencia ambiental</th><th>Métrica de uso</th></tr>
+<tr><td>Stop Impulse Buying</td><td class="B">Nulo</td><td class="M">Medio</td><td class="B">Bajo</td><td class="B">Bajo</td></tr>
+<tr><td>Pasaporte Digital de Producto</td><td class="B">Nulo</td><td class="B">Bajo</td><td class="A">Alto</td><td class="B">Nulo</td></tr>
+<tr><td>Ley francesa anti fast fashion</td><td class="B">Nulo</td><td class="A">Alto</td><td class="M">Medio</td><td class="B">Nulo</td></tr>
+<tr><td>Stylebook app</td><td class="A">Alto</td><td class="B">Nulo</td><td class="B">Nulo</td><td class="M">Medio</td></tr>
+<tr><td>Piénsalo dos veces</td><td class="B">Nulo</td><td class="A">Alto</td><td class="A">Alto</td><td class="B">Nulo</td></tr>
+<tr class="me"><td>Smart Vest</td><td class="A">Alto</td><td class="A">Alto</td><td class="M">Medio</td><td class="A">Alto</td></tr>
+</table></div>
+<p class="met">Quienes ordenan bien el clóset no frenan la compra, y viceversa. Nadie vincula ambos.</p>
+<h3 style="margin-top:28px">De 7 ideas a 1 decisión</h3>
+<div class="flow"><span class="chip">Sustentable</span><span class="chip">Modo adultos mayores</span><span class="chip">Sin sesgo de género</span><span class="chip">Sincronizar correo y tiendas</span><span class="chip">Extensión de navegador</span><span class="chip">Planificador por clima</span><span class="chip">Gratis y de pago</span></div>
+<div class="flow"><b>Filtro impacto × factibilidad:</b><span class="chip top">Sincronización</span><span class="chip top">Sin género</span><span class="chip top">Planificador por clima</span></div>
+<div class="flow"><b>Ganadora:</b><span class="chip on">Planificador de outfits por clima</span><span class="mut">+ recomendaciones sin género + sincronización como mejora futura</span></div>
+<p class="met">Se descartó la extensión de navegador por esfuerzo de desarrollo; el modo adultos mayores pasó a ser un principio de diseño de toda la app.</p>
+</section>
+
+<section id="prototipo">
+<h2>Prototipo e iteración</h2>
+<p class="mut">Probamos tres atributos: <b>adaptable</b> (clima), <b>personalizable</b> (tu ropa y gustos) e <b>intuitivo</b> (sin instrucciones).</p>
+<div class="steps">
+<div class="box">
+  <h3>Boceto en papel y storyboard</h3>
+  <P>Cómo se usaría la app antes de vestirse.</P>
+  <div class="ph v">
+    <img src="dibujo.png" alt="Storyboard y bocetos en papel">
+  </div>
+</div><div class="box">
+  <h3>Pantalla 1: registro de prendas</h3>
+  <p>Foto de la prenda, datos detectados (tipo, color, material, temporada) y edición manual.</p>
+  <div class="ph v">
+    <img src="aaaaaa.png" alt="Pantalla 1: registro de prendas en Figma">
+  </div>
+</div>
+<div class="box">
+  <h3>Pantalla 2: planificador semanal</h3>
+  <p>Clima del día y outfit sugerido. Feedback: me sirvió, tuve frío, tuve calor.</p>
+  <div class="ph v" style="flex-direction: column;">
+    <img src="1.png" alt="Primera captura de Pantalla 2 en Figma" style="width: 100%; height: auto; display: block; border-radius: 6px; margin-bottom: 10px;">
+    <img src="2.png" alt="Segunda captura de Pantalla 2 en Figma" style="width: 100%; height: auto; display: block; border-radius: 6px;">
+  </div>
+</div>
+</div>
+<h3 style="margin-top:26px">Iteraciones</h3>
+<div class="steps">
+<div class="box"><h3>Versión 1 → Versión 2</h3><p>Cambio: <span class="mut">Adicion del outfit según clima</span><br>Motivo (prueba que lo originó): <span class="mut">Mayor organizacion para elegir outfit</span></p></div>
+<div class="box"><h3>Versión 2 → Versión 3</h3><p>Cambio: <span class="mut">Feedback para la funcion añadida anteriormente</span><br>Motivo: <span class="mut"> Mejorar los algoritmos según el usuario considere optimos</span></p></div>
+</div>
+<p class="met">Aprendizaje ya documentado: registrar cada prenda a mano desmotiva, por eso se prioriza automatizar.</p>
+</section>
+
+<section id="validacion">
+  <h2>Validación</h2>
+  <p class="mut">Base: 30 encuestas, observación en malls de la RM, entrevistas y 1 semana de testeo con usuarios del perfil.</p>
+  
+  <div class="steps">
+    <div class="box">
+      <h3>Adaptable</h3>
+      <div class="big" style="font-size:80px;margin:8px 0">70%</div>
+      <p><b>Indicador:</b> % de outfits sugeridos que el usuario marca “me sirvió”.</p>
+      <p><b>Prueba:</b> recomendaciones según clima y feedback 👍 / ❄️ / ☀️.</p>
+    </div>
+
+    <div class="box">
+      <h3>Personalizable</h3>
+      <div class="big" style="font-size:80px;margin:8px 0">3.7</div>
+      <p><b>Indicador:</b> utilidad percibida del CpU y de las sugerencias.</p>
+      <p><b>Prueba:</b> uso del prototipo y encuesta posterior.</p>
+    </div>
+
+    <div class="box">
+      <h3>Intuitivo</h3>
+      <div class="big" style="font-size:80px;margin:8px 0">80%</div>
+      <p><b>Indicador:</b> % de usuarios que registra una prenda y elige un outfit sin ayuda ni explicación previa.</p>
+      <p><b>Prueba:</b> tareas cronometradas con pauta de observación.</p>
+    </div>
+  </div>
+</section>
+<section id="proximos">
+<h2>Aprendizajes y próximos pasos</h2>
+<div class="grid">
+<div class="box"><h3>Lo que aprendimos</h3><p>La sustentabilidad sola no basta: la gente quiere ahorrar dinero y tiempo.</p><p>La facilidad manda: el registro manual desmotiva.</p></div>
+<div class="box"><h3>Lo que decidimos</h3><p>Modelo freemium: gratis lo básico; suscripción con IA avanzada, clóset ilimitado y sin anuncios.</p></div>
+<div class="box"><h3>Lo que sigue</h3>
+<ol class="next"><li>Automatizar el registro con IA (reconocer prendas y precios).</li><li>Integrar clima y calendario.</li><li>Donación y reventa para dar segunda vida a la ropa.</li></ol></div>
+</div>
+</section>
+
+<footer id="refs"><h3 style="color:var(--ink)">Referencias</h3>
+<p>Geyik, P., &amp; Weibo, H. (2025). How consumer market orientations shape algorithmic appreciation and avoidance in fashion. <i>International Journal of Research in Marketing</i>. https://www.sciencedirect.com/science/article/pii/S0167811625000655</p>
+<p>Niinimäki, K., Peters, G., Dahlbo, H., Perry, P., Rissanen, T., &amp; Gwilt, A. (2020). The environmental price of fast fashion. <i>Nature Reviews Earth &amp; Environment, 1</i>(4), 189–200. https://doi.org/10.1038/s43017-020-0039-9</p>
+<p>O’Brien, B., &amp; Poo, P. (2024). Vertedero de ropa en Atacama. Impacto local generado por la industria global. <i>Ecología Política, 68</i>, 74–77. https://doi.org/10.53368/EP68ResBr05</p>
+<p>Ministerio del Medio Ambiente. (2024). <i>Propuesta Estrategia de Economía Circular para Textiles al 2040</i>. https://consultasciudadanas.mma.gob.cl</p>
+<p>Joanes, T., Geiger, S. M., &amp; Gwozdz, W. (2025). Think twice: An intervention strategy to reduce personal clothing consumption. Copenhagen Business School. https://research-api.cbs.dk</p>
+<p>Sanay, S., &amp; Bonisoli, L. (2024). Fast fashion en Centennials: Factores clave en la decisión de compra del consumidor. <i>Ciencia Latina Revista Científica Multidisciplinar, 8</i>(4). https://doi.org/10.37811/cl_rcm.v8i4.12981</p>
+
+</footer>
+</body></html>
